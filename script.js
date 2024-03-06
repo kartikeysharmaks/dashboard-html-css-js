@@ -34,3 +34,90 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 });
+
+document.getElementById("searchInput").addEventListener("keyup", function () {
+  var input = this.value.toLowerCase();
+  var products = document.querySelectorAll(".products-row");
+
+  products.forEach(function (product) {
+    var productName = product
+      .querySelector(".product-cell.image span")
+      .textContent.toLowerCase();
+
+    if (productName.includes(input)) {
+      product.style.display = "flex";
+    } else {
+      product.style.display = "none";
+    }
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  var applyButton = document.querySelector(".apply");
+  var resetButton = document.querySelector(".reset");
+
+  applyButton.addEventListener("click", function () {
+    filterProducts();
+  });
+
+  resetButton.addEventListener("click", function () {
+    document.getElementById("categoryFilter").selectedIndex = 0;
+    document.getElementById("statusFilter").selectedIndex = 0;
+    filterProducts();
+  });
+});
+
+function filterProducts() {
+  var categoryFilter = document
+    .getElementById("categoryFilter")
+    .value.toLowerCase()
+    .trim();
+  console.log(categoryFilter);
+  var statusFilter = document
+    .getElementById("statusFilter")
+    .value.toLowerCase()
+    .trim();
+  console.log(statusFilter);
+  var products = document.querySelectorAll(".products-row");
+
+  products.forEach(function (product) {
+    var category = product
+      .querySelector(".product-cell.category")
+      .textContent.split(":")[1]
+      .toLowerCase()
+      .trim();
+    // console.log(category)
+    // console.log(category === categoryFilter)
+    var status = product
+      .querySelector(".status")
+      .textContent.toLowerCase()
+      .trim();
+    console.log(status);
+    console.log(status === statusFilter);
+
+    if (
+      (categoryFilter === "all categories" || category === categoryFilter) &&
+      (statusFilter === "all status" || status === statusFilter)
+    ) {
+      product.style.display = "flex";
+    } else {
+      product.style.display = "none";
+    }
+  });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const itemsWithChildren = document.querySelectorAll(
+    ".sidebar-list-item.has-children"
+  );
+
+  itemsWithChildren.forEach((item) => {
+    item.addEventListener("click", function (event) {
+      const nestedList = item.querySelector(".nested");
+      if (nestedList) {
+        event.preventDefault();
+        item.classList.toggle("active");
+      }
+    });
+  });
+});

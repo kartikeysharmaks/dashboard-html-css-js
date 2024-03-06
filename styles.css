@@ -125,7 +125,6 @@ body {
   justify-content: center;
   align-items: center;
   margin-left: auto;
-  margin-right: 8px;
   cursor: pointer;
 }
 .mode-switch .moon {
@@ -216,7 +215,11 @@ body {
   line-height: 32px;
   margin: 0;
 }
-.app-content-headerButton {
+.app-content-items{
+  display: flex;
+  gap: 12px;
+}
+.app-content-addButton {
   background-color: var(--action-color);
   color: #fff;
   font-size: 14px;
@@ -227,6 +230,7 @@ body {
   padding: 0 16px;
   transition: 0.2s;
   cursor: pointer;
+  margin-left:8px ;
 }
 .app-content-headerButton:hover {
   background-color: var(--action-color-hover);
@@ -246,8 +250,9 @@ body {
   .app-content-actions {
     flex-direction: column;
   }
-  .app-content-actions .search-bar {
-    max-width: 100%;
+  .app-content-items .search-bar {
+    max-width: 60%;
+    
     order: 2;
   }
   .app-content-actions .app-content-actions-wrapper {
@@ -625,6 +630,10 @@ body {
 
 .total-row {
   margin-top: 400px;
+  color: var(--sidebar-main-color);
+  text-align: center;
+  bottom: 0;
+  font-size: 12px;
 }
 
 .app-user-icon{

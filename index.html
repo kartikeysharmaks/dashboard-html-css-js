@@ -9,14 +9,12 @@
   <body>
     <div class="app-container">
       <div class="sidebar">
-        <div class="sidebar-header"> 
+        <div class="sidebar-header">
           <div class="app-icon">
             <div class="app-icon-gray">INC</div>
-            <div class="app-icon-black">
-                InnovativeHub
-            </div>
+            <div class="app-icon-black">InnovativeHub</div>
           </div>
-          <img class="app-user-icon" src="./assets/user.png" alt="user-img"/>
+          <img class="app-user-icon" src="./assets/user.png" alt="user-img" />
         </div>
         <ul class="sidebar-list">
           <li class="sidebar-list-item">
@@ -154,28 +152,33 @@
       <div class="app-content">
         <div class="app-content-header">
           <h1 class="app-content-headerText">Products</h1>
-         
-          <button class="mode-switch" title="Switch Theme">
-            <svg
-              class="moon"
-              fill="none"
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-            >
-              <defs></defs>
-              <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
-            </svg>
-          </button>
-          <button class="app-content-headerButton">Add Product</button>
+          <div class="app-content-items">
+            <input
+              class="search-bar"
+              id="searchInput"
+              placeholder="Search..."
+              type="text"
+            />
+            <button class="mode-switch" title="Switch Theme">
+              <svg
+                class="moon"
+                fill="none"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+              >
+                <defs></defs>
+                <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+              </svg>
+            </button>
+          </div>
         </div>
         <div class="app-content-actions">
           <div class="app-content-actions-wrapper">
-            <input class="search-bar" placeholder="Search..." type="text" />
             <div class="filter-button-wrapper">
               <button class="action-button filter jsFilter">
                 <span>Filter</span
@@ -198,24 +201,26 @@
               </button>
               <div class="filter-menu">
                 <label>Category</label>
-                <select>
-                  <option>All Categories</option>
-                  <option>Furniture</option>
-                  <option>Decoration</option>
-                  <option>Kitchen</option>
-                  <option>Bathroom</option>
+                <select id="categoryFilter">
+                    <option>All Categories</option>
+                    <option>Furniture</option>
+                    <option>Decoration</option>
+                    <option>Kitchen</option>
+                    <option>Bathroom</option>
+                    <option>Living</option>
                 </select>
                 <label>Status</label>
-                <select>
-                  <option>All Status</option>
-                  <option>Active</option>
-                  <option>Disabled</option>
+                <select id="statusFilter">
+                    <option>All Status</option>
+                    <option>Active</option>
+                    <option>Disabled</option>
                 </select>
                 <div class="filter-menu-buttons">
-                  <button class="filter-button reset">Reset</button>
-                  <button class="filter-button apply">Apply</button>
+                    <button class="filter-button reset">Reset</button>
+                    <button class="filter-button apply">Apply</button>
                 </div>
-              </div>
+            </div>
+            
             </div>
             <button class="action-button list active" title="List View">
               <svg
@@ -257,6 +262,7 @@
                 <rect x="3" y="14" width="7" height="7" />
               </svg>
             </button>
+            <button class="app-content-addButton">Add Product</button>
           </div>
         </div>
         <div class="products-area-wrapper tableView">
